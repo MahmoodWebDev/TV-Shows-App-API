@@ -1,0 +1,56 @@
+/* General Styling */
+body {
+  font-family: sans-serif;
+  background-color: #f8f0e6; /* Light, creamy background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background-color: #b8e2c6; /* Light, minty green color */
+  padding: 30px 50px;
+  border-radius: 15px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* Subtle drop shadow */
+  text-align: center;
+}
+
+/* Input Area */
+#movie-search {
+  padding: 12px 15px;
+  width: 350px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+#movie-search:focus {
+  box-shadow: 0 0 5px rgba(184, 226, 198, 0.8); /* Animated focus glow */
+}
+
+/* Search Button */
+#search-btn {
+  background-color: #7ecba2; /* Slightly darker green button */
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#search-btn:hover {
+  background-color: #2a7552; /* Darken on hover */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Inset hover shadow */
+}
+
+/* Animation */
+#movie-search,
+#search-btn {
+  transition: box-shadow 0.3s ease; /* Smooth transitions */
+}
