@@ -9,7 +9,7 @@ function displayMovieInfo(data) {
     container.removeChild(existingResult);
   }
 
-  const maxResults = 3;
+  const maxResults = 15;
 
   for (let i = 0; i < Math.min(maxResults, data.length); i++) {
     const movie = data[i].show;
