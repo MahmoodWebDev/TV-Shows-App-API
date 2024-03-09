@@ -3,43 +3,54 @@ const searchBtn = document.getElementById("search-btn");
 const container = document.querySelector(".container");
 
 function displayMovieInfo(data) {
-  // Remove any existing movie results
+  removeExistingResults();
+
+  const maxResults = 15;
+  const dataLength = data.length;
+
+  for (let i = 0; i < Math.min(maxResults, dataLength); i++) {
+    if (data[i] && data[i].show) {
+      displayMovie(data[i].show);
+    }
+  }
+}
+
+function removeExistingResults() {
   const existingResult = container.querySelector(".movie-result");
   if (existingResult) {
     container.removeChild(existingResult);
   }
+}
 
-  const maxResults = 15;
+function displayMovie(movie) {
+  const resultsDiv = createResultsDiv();
 
-  for (let i = 0; i < Math.min(maxResults, data.length); i++) {
-    const movie = data[i].show;
+  const title = document.createElement("h2");
+  title.textContent = movie.name;
+  resultsDiv.appendChild(title);
 
-    // Create a new div for movie results
-    const resultsDiv = document.createElement("div");
-    resultsDiv.classList.add("movie-result");
-
-    // Extract and display relevant details
-    const title = document.createElement("h2");
-    title.textContent = movie.name;
-    resultsDiv.appendChild(title);
-
-    if (movie.image) {
-      const img = document.createElement("img");
-      img.src = movie.image.medium;
-      img.alt = movie.name;
-      resultsDiv.appendChild(img);
-    }
-
-    const genres = document.createElement("p");
-    genres.textContent = `Genres: ${movie.genres.join(", ")}`;
-    resultsDiv.appendChild(genres);
-
-    const runtime = document.createElement("p");
-    runtime.textContent = `Runtime: ${movie.runtime} minutes`;
-    resultsDiv.appendChild(runtime);
-
-    container.appendChild(resultsDiv);
+  if (movie.image) {
+    const img = document.createElement("img");
+    img.src = movie.image.medium;
+    img.alt = movie.name;
+    resultsDiv.appendChild(img);
   }
+
+  const genres = document.createElement("p");
+  genres.textContent = `Genres: ${movie.genres.join(", ")}`;
+  resultsDiv.appendChild(genres);
+
+  const runtime = document.createElement("p");
+  runtime.textContent = `Runtime: ${movie.runtime} minutes`;
+  resultsDiv.appendChild(runtime);
+
+  container.appendChild(resultsDiv);
+}
+
+function createResultsDiv() {
+  const resultsDiv = document.createElement("div");
+  resultsDiv.classList.add("movie-result");
+  return resultsDiv;
 }
 
 function fetchMovieData(query) {
@@ -57,13 +68,14 @@ function fetchMovieData(query) {
     });
 }
 
-// Event listeners
+// Existing click event listener
 searchBtn.addEventListener("click", () => {
   const query = searchInput.value;
   if (query) fetchMovieData(query);
 });
 
-searchInput.addEventListener("keypress", (event) => {
+// New keyup event listener
+searchInput.addEventListener("keyup", (event) => {
   if (event.key === "Enter") {
     const query = searchInput.value;
     if (query) fetchMovieData(query);
