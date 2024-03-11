@@ -57,6 +57,7 @@ body {
 }
 
 .movie-result {
+  max-width: 230px;
   border: 1px solid #93c1a2; /* Slightly softer border color */
   margin-bottom: 15px;
   padding: 15px;
