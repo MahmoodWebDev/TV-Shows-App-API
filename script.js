@@ -1,3 +1,4 @@
+// Variables declared.
 const movieSearchInput = document.getElementById("movie-search");
 const movieSearchButton = document.getElementById("search-btn");
 const container = document.querySelector(".container");
