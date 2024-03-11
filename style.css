@@ -10,6 +10,7 @@ body {
 }
 
 .container {
+  margin-top: 20px;
   background-color: #b8e2c6; /* Light, minty green color */
   padding: 30px 50px;
   border-radius: 15px;
@@ -62,6 +63,7 @@ body {
   background-color: #e7e7e7; /* White background for contrast */
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle box shadow for depth */
+  transition: transform 0.3s ease; /* Updated transition */
 }
 
 .movie-result h2 {
