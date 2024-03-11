@@ -42,6 +42,7 @@ body {
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Updated transitions */
 }
 
 #search-btn:hover {
@@ -49,8 +50,28 @@ body {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Inset hover shadow */
 }
 
-/* Animation */
-#movie-search,
-#search-btn {
-  transition: box-shadow 0.3s ease; /* Smooth transitions */
+/* Movie Results */
+#results-container {
+  margin-top: 30px;
+}
+
+.movie-result {
+  border: 1px solid #93c1a2; /* Slightly softer border color */
+  margin-bottom: 15px;
+  padding: 15px;
+  background-color: #e7e7e7; /* White background for contrast */
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle box shadow for depth */
+}
+
+.movie-result h2 {
+  margin-top: 0;
+  color: #303030; /* Darker heading text */
+}
+
+.movie-result img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+  border-radius: 5px;
 }
