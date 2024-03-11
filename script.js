@@ -1,15 +1,15 @@
 // Variables declared.
 const movieSearchInput = document.getElementById("movie-search");
 const movieSearchButton = document.getElementById("search-btn");
-const container = document.querySelector(".container");
+const resultsContainer = document.getElementById("results-container");
 const MAX_DISPLAYED_RESULTS = 15;
 const DEBOUNCE_DELAY = 500; // Delay in milliseconds
 
-// Function to clear any existing search results before displaying new ones
+// Function to clear any existing search results
 function clearExistingResults() {
-  const existingResult = container.querySelector(".movie-result");
+  const existingResult = resultsContainer.querySelector(".movie-result");
   if (existingResult) {
-    container.removeChild(existingResult);
+    resultsContainer.removeChild(existingResult);
   }
 }
 
@@ -37,7 +37,7 @@ function displayMovie(movie) {
   runtime.textContent = `Runtime: ${movie.runtime} minutes`;
   resultsDiv.appendChild(runtime);
 
-  container.appendChild(resultsDiv);
+  resultsContainer.appendChild(resultsDiv);
 }
 
 // Function to display the fetched movie information
@@ -49,16 +49,13 @@ function displayMovieInfo(searchResults) {
     i < Math.min(MAX_DISPLAYED_RESULTS, searchResults.length);
     i++
   ) {
-    const movie = searchResults[i].show;
-    if (movie) {
-      displayMovie(movie);
-    }
+    displayMovie(searchResults[i].show);
   }
 }
 
 // Function to fetch movie data from the API
 function fetchMovieData(query) {
-  container.classList.add("loading"); // Show loading indicator
+  resultsContainer.classList.add("loading"); // Show loading indicator
 
   fetch(`https://api.tvmaze.com/search/shows?q=${query}`)
     .then((response) => response.json())
@@ -68,11 +65,11 @@ function fetchMovieData(query) {
       displayErrorMessage();
     })
     .finally(() => {
-      container.classList.remove("loading"); // Hide loading indicator
+      resultsContainer.classList.remove("loading"); // Hide loading indicator
     });
 }
 
-// Simple error message display (you'll likely want to customize this)
+// Simple error message display
 function displayErrorMessage() {
   alert("Oops! Something went wrong while fetching movies. Please try again.");
 }
@@ -91,20 +88,12 @@ movieSearchButton.addEventListener("click", () => {
 // Event listener for typing in the search input (with debouncing)
 movieSearchInput.addEventListener("keyup", (event) => {
   if (event.key === "Enter") {
-    const query = movieSearchInput.value;
-    if (query) {
-      fetchMovieData(query);
-    }
+    fetchMovieData(movieSearchInput.value);
   } else {
-    // Clear any existing timeout from previous keystrokes
     clearTimeout(searchTimeout);
 
-    // Set a new timeout to trigger the search after the delay
     searchTimeout = setTimeout(() => {
-      const query = movieSearchInput.value;
-      if (query) {
-        fetchMovieData(query);
-      }
+      fetchMovieData(movieSearchInput.value);
     }, DEBOUNCE_DELAY);
   }
 });
