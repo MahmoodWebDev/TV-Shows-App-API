@@ -4,8 +4,8 @@ This is a simple TV shows search application built with HTML, CSS, and JavaScrip
 
 ## Features
 
-- Search for movies by title
-- Display movie details including title, image, and more
+- Search for TV shows by title
+- Display TV shows details including title, image, and more
 - Responsive design that works on desktop and mobile
 
 ## Live demo
