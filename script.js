@@ -2,7 +2,7 @@
 const movieSearchInput = document.getElementById("movie-search");
 const movieSearchButton = document.getElementById("search-btn");
 const resultsContainer = document.getElementById("results-container");
-const MAX_DISPLAYED_RESULTS = 15;
+const MAX_DISPLAYED_RESULTS = 30;
 const DEBOUNCE_DELAY = 500; // Delay in milliseconds
 
 // Function to clear any existing search results
