@@ -10,13 +10,13 @@ This is a simple TV shows search application built with HTML, CSS, and JavaScrip
 
 ## Live demo
 
-[Live 🌐](https://mahmood.io)
+[Live 🌐](https://tvshows-api-mahmood.vercel.app/)
 
 ## Setup
 
 To run this project locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/yourusername/moviesearch.git`
+1. Clone the repository: `git clone https://github.com/MahmoodWebDev/Tvmaze-movieApp-API`
 2. Open `index.html` in your browser
 
 ## Usage
