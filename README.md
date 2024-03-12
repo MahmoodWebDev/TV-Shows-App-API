@@ -10,7 +10,7 @@ This is a simple TV shows search application built with HTML, CSS, and JavaScrip
 
 ## Live demo
 
-[Live 🌐](https://tvshows-api-mahmood.vercel.app/)
+[Click for Live app 🌐](https://tvshows-api-mahmood.vercel.app/)
 
 ## Setup
 
