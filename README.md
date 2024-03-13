@@ -16,7 +16,7 @@ This is a simple TV shows search application built with HTML, CSS, and JavaScrip
 
 To run this project locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/MahmoodWebDev/Tvmaze-movieApp-API`
+1. Clone the repository: `git clone https://github.com/MahmoodWebDev/TV-Shows-App-API`
 2. Open `index.html` in your browser
 
 ## Usage
