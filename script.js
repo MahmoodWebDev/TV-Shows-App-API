@@ -85,15 +85,9 @@ movieSearchButton.addEventListener("click", () => {
   }
 });
 
-// Event listener for typing in the search input (with debouncing)
+// Event listener for typing in the search input
 movieSearchInput.addEventListener("keyup", (event) => {
   if (event.key === "Enter") {
     fetchMovieData(movieSearchInput.value);
-  } else {
-    clearTimeout(searchTimeout);
-
-    searchTimeout = setTimeout(() => {
-      fetchMovieData(movieSearchInput.value);
-    }, DEBOUNCE_DELAY);
   }
 });
